@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>^^^>>>></title>
+</head>
+<body>
+<font size="20" color ="blue">내가 열심히 했던 게임들</font>
+<br></br>
+<font size="20" color ="green">PC게임</font>
+
+	<ol>
+		<li><font size="15">바람의나라</font>
+		<img src = "/clientweb/images/baram.png" border="1"/></li>
+		
+		<li>그랜드체이스
+		<img src = "../images/gc.jpg" border="1"/></li>
+
+		<li>제노에이지plus
+		<img src = "../images/xeno.jpg" border="1"/></li>
+		
+		<li>웜즈
+		<img src = "../images/worms.jpg" border="1"/></li>
+				
+	</ol>
+	<h2>비디오 게임</h2>
+	<ol>
+		<li>ps1 펩시맨
+		</li>
+		<li>ps1 스파이로</li>
+		<li>ps1 크래시밴디쿳</li>
+		<li>ps1 팩맨</li>
+		<li>소닉더헤지혹 시리즈..</li>
+		
+		
+		<li>jQuery</li>
+	</ol>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>기본 html연습</title>
+	</head>
+	<body>
+		<!-- html 주석 (클라이언트에 전송되는 주석: 주의! 중요한 내용 작성x) -->
+		안녕하세요<br/>	<!-- br: 단락 내에서 줄만 바뀐 것 (word의 shift+엔터) -->
+		<b><i>김현정</i></b>입니다.		
+		<hr/>
+		<!-- p: 단락을 바꿔줌(간격이 생김) -->
+		<p>지금은 html의 기본을 연습하는 시간입니다.</p> 
+		<h1>HTML연습중.....</h1>	<!-- 제목을 위해 사용하는 태그: 줄바꿈+굵게 -->
+		<h2>HTML연습중.....</h2>
+		<h3>HTML연습중.....</h3>
+		<h4>HTML연습중.....</h4>
+		<h5>HTML연습중.....</h5>
+		<h6>HTML연습중.....</h6>
+		<h7>HTML연습중.....</h7> <!-- h7은 없다 -->
+		<font size="1" color="red" face="굴림">HTML연습중.....</font> <!-- 본문의 글자를 나타냄 -->
+		<font size="2" color="green" face="HY견고딕">HTML연습중.....</font> <!-- 본문의 글자를 나타냄 -->
+		<font size="3" color="blue" face="궁서">HTML연습중.....</font> <!-- 본문의 글자를 나타냄 -->
+		<font size="4" color="skyblue" face="굴림">HTML연습중.....</font> <!-- 본문의 글자를 나타냄 -->
+		<font size="5" color="yellow" face="굴림">HTML연습중.....</font> <!-- 본문의 글자를 나타냄 -->
+		<font size="6" color="#47C83E" face="굴림">HTML연습중.....</font> <!-- 본문의 글자를 나타냄 -->
+		<!-- RGB색상을 16진수로 표현 -->
+		<!-- html에서는 font로 안꾸미고 CSS에서 꾸민다. -->
+		
+		<h3>상대경로로 이미지 삽입하기</h3>
+		<img src="jang1.jpg"/>
+		<img src="../images/jang1.jpg"/>
+		<img src="../images/jang1.jpg" width="200" height="300"
+				border="1" alt="멋진 장동건"/> <!-- 테두두리, 툴팁(브라우저에 따라 지원x) -->
+		<br/>
+		<br/>
+		<br/>
+		<h3>절대경로로 이미지 삽입하기</h3>	
+		<img src = "http://127.0.0.1:8088/clientweb/images/jang1.jpg"
+				width="200" height="300"/>
+				<!--  /가 있으면 root에서 시작하는 절대경로 -->
+		<img src = "/clientweb/images/jang1.jpg"
+				width="200" height="300"/>
+		
+	</body>
+</html>
+
+
+
