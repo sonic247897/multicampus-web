@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR"/>
-<title>Insert title here</title>
+	<meta charset="EUC-KR"/>
+	<title>Insert title here</title>
+	<style type ="text/css">
+		table{
+			/* 테두리 두겹->한겹 */
+			border-collapse: collapse;
+			border-color: #a8ca40;
+			text-align: center;
+			
+			background-color: #ebf2d4;
+		}
+		#title{
+			color: white;
+		}
+		.colorrow{
+			background-color: #ffffff;
+		
+		}
+		/* 얘도 테이블 아닌가?  */
+		th, td{
+			font-size: 9pt;
+			padding: 15px;
+			border: solid #a8ca40 1px;
+			text-align: center;
+		}
+		
+		th{
+			background-color: #a8ca40;
+			color: white;
+		}
+		
+		td:hover{ /* 마우스 포인터를 올려 놓았을때(a태그가 아니라도 모두 적용가능) */
+			background-color: skyblue;
+		}
+		
+	</style>
+
 </head>
 <body>
-	<table>
+	<table border = "1">
 		<caption>가장 즐겨듣는 15곡 연주 목록</caption>
 		<thead>
-		<tr>
+		<tr id="title">
 			<th>순위</th>
 			<th>곡명</th>
 			<th>가수명</th>
@@ -22,7 +57,7 @@
 				<td>이승철</td>
 				<td>Reflection of Sound</td>
 			</tr>
-			<tr>
+			<tr class ="colorrow">
 				<td>2</td>
 				<td>겨울비는내리고</td>
 				<td>김범룡</td>
@@ -36,7 +71,7 @@
 				<td>The Ballads</td>
 			</tr>
 
-			<tr>
+			<tr class ="colorrow">
 				<td>4</td>
 				<td>알 수 없는 인생</td>
 				<td>이문세</td>
@@ -50,7 +85,7 @@
 				<td>Thank You I Can Smile Again</td>
 			</tr>
 
-			<tr>
+			<tr class ="colorrow">
 				<td>6</td>
 				<td>내 사람</td>
 				<td>SG워너비</td>
@@ -64,7 +99,7 @@
 				<td>Aha Shake Heartbreak</td>
 			</tr>
 
-			<tr>
+			<tr class ="colorrow">
 				<td>8</td>
 				<td>남자를 몰라</td>
 				<td>Buzz(버즈)</td>
@@ -78,7 +113,7 @@
 				<td>이따, 이따요</td>
 			</tr>
 
-			<tr>
+			<tr class ="colorrow">
 				<td>10</td>
 				<td>아이스크림</td>
 				<td>MC몽</td>
@@ -92,7 +127,7 @@
 				<td>남자가 여자를 사랑할 때</td>
 			</tr>
 
-			<tr>
+			<tr class ="colorrow">
 				<td>12</td>
 				<td>I'm Coming</td>
 				<td>비(Rain)</td>
@@ -106,7 +141,7 @@
 				<td>ashes to ashes - 6집</td>
 			</tr>
 
-			<tr>
+			<tr class ="colorrow">
 				<td>14</td>
 				<td>떠나지마</td>
 				<td>이승철</td>

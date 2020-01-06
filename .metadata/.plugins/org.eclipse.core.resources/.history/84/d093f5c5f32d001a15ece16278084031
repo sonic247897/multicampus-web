@@ -1,0 +1,18 @@
+@charset "EUC-KR";
+body{
+	font-size: 9pt;
+}
+
+h1{
+	color: #3a9297;
+}
+
+#mydiv1{
+	padding: 20px;		
+	height: 100px;
+	background-color: #a7cece;
+	background-image: url("../images/background.gif");
+	background-repeat: no-repeat;
+	padding-left: 100px;	
+	font-style: italic;	
+}

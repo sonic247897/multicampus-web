@@ -1,0 +1,32 @@
+@charset "EUC-KR";
+body{
+	font-size: 9pt;
+}
+
+h1{
+	color: #3a9297;
+}
+
+#mydiv1{
+	padding: 20px;		
+	height: 80px;
+	background-color: #a7cece;
+	background-image: url("../images/background.gif");
+	background-repeat: no-repeat;
+	padding-left: 100px;	
+	font-style: italic;	
+	
+	border: solid white 1px;
+	margin: 20px;
+	border-radius: 20px;
+	overflow: auto;
+}
+
+/* 반응형 웹: 80px과 80% - 해상도에 따라 비율에 맞춰서 변경되는 % 사용 */
+#outer{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	/* 글자 삐죽하게 튀어나오는 것 정렬  */
+	text-align: justify;	
+}
