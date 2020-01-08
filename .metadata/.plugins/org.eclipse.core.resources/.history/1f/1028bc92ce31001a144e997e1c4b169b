@@ -1,0 +1,8 @@
+BOM
+ - 브라우저에 출력되는 모든 구성요소를 객체로 정의하고 접근
+ 
+ - window
+ - location
+ - document
+ - form
+ 

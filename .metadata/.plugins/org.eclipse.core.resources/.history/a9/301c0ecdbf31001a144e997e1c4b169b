@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		days = new Array("일","월","화","수","목","금","토");
+		today = new Date();
+		document.write("요일정보: "+ days[today.getDate()]);
+		
+	</script>
+
+</body>
+</html>

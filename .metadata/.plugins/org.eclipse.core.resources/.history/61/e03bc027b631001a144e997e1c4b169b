@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>	
+	<script type="text/javascript">
+		today = new Date();
+		day = today.getDay();
+		time = today.getHours();
+		// 오후
+		if(time>= 12){
+			document.bgColor = "green";
+			
+		}
+		else{
+			document.bgColor = "red";
+		}
+		
+		
+				
+	</script>
+
+</body>
+</html>

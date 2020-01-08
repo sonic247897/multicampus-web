@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>	
+	<script type="text/javascript">
+		today = new Date();
+		day = today.getDay();
+		time = today.getHours();
+		// 오후
+		if(time>= 12){
+			document.bgColor = "#ff0000";
+		}// 오전
+		else{
+			document.bgColor = "#00ff00";
+		}
+
+		document.write("<img src= '../images/jang" + (day+1) +".jpg'/>");
+				
+	</script>
+
+</body>
+</html>

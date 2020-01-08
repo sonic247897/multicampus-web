@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function printText(){
+			quant = bexam.quantity.value; 
+			price = 12900;
+			result = price*quant*0.9;
+			document.getElementById("result").innerHTML 
+					= result;
+		}
+	</script>
+</head>
+<body>
+	<!-- form 안에 div는 잘 안넣는다. span을 넣으면 한줄 안 뜀 -->
+	<form name = "bexam">
+		수량: <input type = "text" name="quantity"
+		 onkeyup="printText()">
+		 <span id = "result"></span>
+	</form>	
+
+</body>
+</html>

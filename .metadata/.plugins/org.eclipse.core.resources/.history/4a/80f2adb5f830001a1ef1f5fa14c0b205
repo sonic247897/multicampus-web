@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		jumsu = 90;
+		switch(jumsu/10){
+			case :
+		
+		}
+		
+	</script>
+</body>
+</html>

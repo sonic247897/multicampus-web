@@ -1,0 +1,7 @@
+/**
+ *  <script>~</script> 내부라고 생각하고 작성하면 된다.
+ */
+function test2(){
+	alert("test....");
+	
+}

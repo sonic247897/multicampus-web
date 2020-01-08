@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<form name = "mypopup" action= "search.jsp">
+		<input type="text" name="time"/>
+		<input type="button" value="검색"/>
+	</form>
+</body>
+</html>

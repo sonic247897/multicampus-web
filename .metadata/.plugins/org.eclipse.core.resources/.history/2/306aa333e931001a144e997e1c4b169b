@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function calc(){
+			
+			
+		}
+		function printText(){
+			myval = bexam.quantity.value; 
+			document.getElementById("result").innerHTML 
+					= "<h1>"+myval+"</h1>";
+			document.bexam.result.value.innerHTML
+				= clac();
+			
+		}
+	</script>
+</head>
+<body>
+	<form name = "bexam">
+		수량: <input type = "text" name="quantity"
+		 onkeyup="printText()"
+		
+		>
+		<div name = "result"></div>
+	
+	</form>
+	
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+/**
+ *  <script>~</script> .
+ */
+function test2(){
+	alert("test....Å×½ºÆ®"); 
+}

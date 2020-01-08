@@ -1,0 +1,31 @@
+<!-- 자바스크립트를 사용하는 방법 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<!-- 2. head태그 안에 function을 정의하고 사용하는 방법 -->
+	<script type = "text/javascript"> /* 형식이 text이고 자바스크립트이다. */
+		function test(){
+			alert("테스트 중 - 자바스크립트 사용방법");
+		}
+	</script>
+</head>
+<body>
+	<!-- 1. body태그 안에 직접 정의  -->
+	<script type= "text/javascript">
+		// 한 줄 주석
+		/* 자바와 동일한 
+			여러 줄 주석 */
+		/* 기존에 있는 내용 뭉개고 출력하므로 document.write 안쓴다. = sysout */
+		document.write("<h1>브라우저에 데이터 출력하기 - 연습용</h1>"); // ;안써도 됨
+		test(); //자바의 메소드 호출방법과 동일
+	</script>
+	<!-- 3. 태그 내부에서 inline으로 사용하는 방법: 이벤트 핸들러에 연결  -->
+	<!-- alert는 자바스크립트계의 sysout, 즉 디버깅 용이다.  -->
+	<input type="button" value = "자바스크립트 실행하기" onclick="alert('안녕')">
+	<!-- onXXX(발생하는 이벤트명): 이벤트핸들러 -->
+	<input type="button" value= "자바스크립트 함수 호출" onclick="test()">
+	
+</body>
+</html>

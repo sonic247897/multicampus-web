@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!-- 변수의 사용범위(함수)  -->
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<!-- 이 스크립트는 현재 html에서만 사용가능 -->
+	<script type="text/javascript">
+		// 자바스크립트에서 전역변수와 지역변수를 구분하여 선언하기
+		//		=> 함수끼리 변수를 공유해서 사용하는 경우 유용
+	</script>
+</head>
+<body>
+
+</body>
+</html>
