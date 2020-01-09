@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<form name="myform">
+	</form>
+	<img alt="" src="/clientweb/images/ses_g1.jpg">
+</body>
+</html>

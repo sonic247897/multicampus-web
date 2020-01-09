@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<!--1. 전체 체크를 선택하면 되면 항목이 체크/해제
+	2. 전체 체크가 되면 수량과 판매가를 계산해서 구매 예정가에 출력
+	3. 각각의 체크를 선택/해제했을 때 구매예정가가 변경되도록
+	4. totalPrice 출력하기  						-->	
+	<script type="text/javascript">
+		//모두 선택 체크박스가 선택되는 경우 호출할 함수
+		function allcheck(){
+			mycheck = document.myform.prd; //각 상품별 체크박스
+			allChkVal = myform.allchk.checked; // 전체선택 체크박스
+			for(i=0; i<mycheck.length; ++i){
+				mycheck[i].checked = allChkVal;
+			}
+			calc();
+		} 
+		//가각의 체크박스를 선택/해제하거나 수량을 변경했을때 호출할 함수
+		function calc(){
+			countArr = myform.count; //수량
+			priceArr = myform.price; //가격
+			// !디버깅 - 제대로 값이 들어있으면 length가 출력된다.
+			//alert(countArr.length + ", " + priceArr.length);
+			//계산금액 추가할 <span>
+			calcpriceArr = document.getElementsByClassName("calcprice");
+			// 체크박스 - 위에 함수에  mycheck변수 있지 않나?
+			mychk = document.myform.prd;
+			result = 0;
+			totalPrice = 0;
+			// 체크박스의 개수만큼 for문을 실행하면서 체크된 체크박스에 대해서 계산
+			// *검색시 체크박스 사용해서 javascript로 작성함
+			for(i=0; i<mychk.length; ++i){
+				if(mychk[i].checked){
+					// 계산해서 calcpriceArr의 같은 index를 갖고있는 요소에 출력
+					// 출력하기
+					
+					//totalPrice에 누적
+				}else{ //정책에 따라 다르다 - 0 또는 표시X
+					
+				}
+			}
+			
+		}
+				
+		
+	
+		function calcPrice(){
+			// 자동으로 배열이 된다.
+			mycount = document.myform.count;
+			myprice = document.myform.price;
+			//mycalcprice = document.getElementById("calcprice"); // calcprice는 id가 아니라 class이다.
+			// 단일 id 못 받음
+			mycalcprice = document.getElementsByClassName("calcprice");
+			alert(mycalcprice[i])
+			for(i=0; i<mycalcprice.length; ++i){
+				result = parseInt(mycount[i])*parseInt(myprice[i]);
+				alert(result);
+				if(result == 0){
+					mycalcprice[i].innerHTML = 0;
+				}
+				else{
+					mycalcprice[i].innerHTML = result;
+				}
+			}
+			printTotal();
+		}
+		
+		function printTotal(){
+			mycheck = document.myform.prd;
+			totalPrice = 0;
+			for(i=0; i<mycalcprice; ++i){
+				if(mycheck[i].checked == true){
+					totalPrice += mycalcPrice[i];
+				}
+			}
+			total = document.getElementById("totalprice");
+			total.innerHTML = totalPrice;	
+		}
+		
+		
+	</script>
+
+</head>
+<body>
+	<form name="myform">
+		<table border="1" width="800">
+		<!-- DB조회하여 tr만들것임 -->
+			<tr>
+				<td><input type="checkbox" name="allchk" onclick = "allcheck()"/>항목명</td>
+				<td>상품정보</td>
+				<td>수량</td>
+				<td>판매가</td>
+				<td>구매예정가</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="prd" onclick = "calc()"/>완도미역</td>
+				<td><img src="../images/pro1.jpg"/></td>
+				<td><input type="number" name="count" value="1" min= "0"
+							onchange = "calcPrice()"/></td>
+				<td>
+				<input type="text" name="price" value="6900"/><span>원</span></td>
+				<td><span class="calcprice"></span><span>원</span></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="prd" onclick = "calc()"/>스카트 빨아쓰는 휴지</td>
+				<td><img src="../images/pro2.jpg"/></td>
+				<td><input type="number" name="count" value="1" min= "0"
+							onchange = "calcPrice()"/></td>
+				<td><input type="text" name="price" value="7800"/><span>원</span></td>
+				<td><span class="calcprice"></span><span>원</span></td>
+			</tr>
+			<tr>
+				<td colspan="6" align="right"><span id="totalprice">계산된금액</span><span>원</span></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
