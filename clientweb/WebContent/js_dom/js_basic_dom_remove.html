@@ -2,8 +2,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			document.getElementById("btndelete").onclick = function() {
+				//1. 삭제하고 싶은 노드의 부모노드를 구하기
+				targetNode = document.getElementById("myformId");
+				
+				//2. 삭제할 노드를 구하기
+				//delNode = document.getElementById("btninsert");
+				delNode = targetNode.firstChild; //계속 누르면 모든 자식 다 지워짐
+				//공백노드 때문에 두번씩 클릭해야 지워짐
+				
+				//3. 삭제하기 - 부모노드의 메소드를 통해 지운다. (자기자신 지울수 X)
+				targetNode.removeChild(delNode);
+				
+			}
+		}
+	</script>
 </head>
 <body>
 	<div id="main">

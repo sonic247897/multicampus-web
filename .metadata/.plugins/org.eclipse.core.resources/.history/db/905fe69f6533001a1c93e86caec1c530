@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		// 이벤트 핸들러에 붙어있는 함수 - 선언문으로 정의
+		
+		/* spanNode = document.createElement("span");
+				textNode = document.createTextNode("삽입될 텍스트 ");
+				spanNode.appendChild(textNode);
+				
+				//2. 삽입될 위치의 상위노드 구하기
+				parentNode = document.getElementById("myformId");
+				
+				//3. 삽입될 위치의 형제노드를 구하기
+				targetNode = document.getElementById("btndomtest");
+				
+				//4. 노드 추가하기
+				parentNode.insertBefore(spanNode, targetNode); */
+		function insertP(){
+			pNode = document.createElement("p");
+			// text가 없으면 p의 부피가 없으므로 추가되어도 안보인다.
+			textNode = document.createTextNode("newP");
+			pNode.appendChild(textNode);
+			pNode.setAttribute("style", "background: yellow;");
+			parentNode = document.getElementById("root");
+			parentNode.appendChild(pNode);
+		}
+		
+		function deleteP(){
+			parentNode = document.getElementById("root");
+			// 두번 클릭 안되게 하기
+			lastNode = parentNode.lastChild;
+			if(lastNode.nodeName == "#text"){
+				parentNode.removeChild(lastNode);
+			}
+			parentNode.removeChild(lastNode);
+		}
+		
+		function deleteDivAndP(){
+			div = document.getElementById("root");
+			parr = div.childNodes;
+			// 동적array의 길이를 계산하는 함수
+			size = parr.length;
+			for(i=0; i<size; ++i){
+				div.removeChild(div.lastChild);
+			}
+			
+		}
+	
+	</script>
+</head>
+<body>
+	<div id="layer"></div>
+
+	<hr>
+
+	<div id="root">
+		<p style="background: gray;">line01</p>
+		<p style="background: skyblue">line02</p>
+		<p style="background: green;">line03</p>
+		<p style="background: red;">line04</p>
+	</div>
+
+	<hr>
+	<button onclick="insertP()">P태그추가하기</button>
+	<button onclick="deleteP()">P태그삭제하기</button>
+	<button onclick="deleteDivAndP()">div안의 모든 p태그 삭제하기</button>
+	<button onclick="innerHTML_test()">innerHTML</button>
+
+
+</body>
+</html>

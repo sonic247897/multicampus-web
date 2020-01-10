@@ -18,16 +18,44 @@
 			// test() 괄호 명시하지 않고 이름만 넘겨준다.
 			// ex) window.setTimeout(test, 1000),  객체.onclick = test;
 			document.getElementById("btndomtest").onclick = domTest;
-			// 2. 표현식
-			document.getElementById("btninsert").onclick = function (){
-				alert("insert");
-			}
+			document.getElementById("nodetest").onclick = domTest2;
 			
 		}
 		function domTest(){
-			alert("domTest....");
-			
+			//alert("domTest....");
+			// div태그 목록을 가져온다.
+			// 하나밖에 없어도 두개이상 있을 가능성이 있으므로 NodeList(배열)를 반환한다.
+			// getElementsByTagName은 노드의 구조와 상관없이 해당 태그를 모두 찾는다.
+			nodelist = document.getElementsByTagName("div");
+			alert(nodelist);
+			alert("div노드의 개수=>" +nodelist.length);
+			// getAttribute는 노드(엘리먼트)에 정의된 속성의 값을 리턴
+			//				 ----
+			for(i=0; i<nodelist.length; ++i){
+				alert("id속성=>"+ nodelist[i].getAttribute("id"));
+				// $$ JavaScript에서는 .equals나 메소드 사용하지 않고 ==를 사용한다!!
+				if(nodelist[i].getAttribute("id") == "domtestbtn"){
+					alert("양식태그");
+					alert(nodelist[i].firstChild.nodeName +", "
+							+nodelist[i].firstChild.nodeValue);
+				}
+			}
 		}
+		function domTest2(){
+			list = document.getElementById("myformId").childNodes;
+			alert(list.length);
+			// 11개 = 5개 태그노드(input) + 6개 공백노드
+			// 공백노드는 id속성이 없어서 처리 없이 list[i].getAttribute("id")하면 
+			// 에러가 발생한다. 
+			for(i=0; i<list.length; ++i){
+				if(list[i].nodeName != "#text"){
+					if(list[i].getAttribute("id") == "imginsert"){
+						alert(list[i].getAttribute("name"));
+					}
+				}
+			}
+		}
+		
 	</script>
 </head>
 
@@ -37,12 +65,11 @@
 		<div id="mycontent1"><img src="../images/m_garden07.jpg" name="myimg" id="myimagId"
 				alt="이미지파일" /><h3>이미지파일</h3></div>
 		<div id="mycontent2">DOM의 구조를 볼까~~</div>
-		<div id="domtestbtn">
-			<form id="myformId" name="myform">		
+		<div id="domtestbtn"><form id="myformId" name="myform">	
 				<input type="button" value="dom구조확인하기"
 					 name="btn" id="btndomtest" />
-				<input type="button" value="노드삽입하기"
-					 name="btn" id="btninsert" />
+				<input type="button" value="노드탐색연습"
+					 name="btn" id="nodetest" />
 				<input type="button" value="이미지노드삽입하기"
 					 name="btn" id="imginsert" />					 
 				<input type="button" value="특정노드전에 삽입하기"

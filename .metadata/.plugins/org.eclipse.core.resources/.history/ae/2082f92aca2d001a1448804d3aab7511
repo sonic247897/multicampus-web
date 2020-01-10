@@ -1,6 +1,0 @@
-@charset "EUC-KR";
-/* style Áß°ýÈ£ ¾È  */
-body{
-	background-color:pink;
-	
-}
