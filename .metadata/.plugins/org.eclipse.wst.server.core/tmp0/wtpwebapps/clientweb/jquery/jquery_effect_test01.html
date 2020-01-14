@@ -3,6 +3,7 @@
 <head>
 	<meta charset="EUC-KR">
 	<title>Insert title here</title>
+	<!-- jQuery는 라이브러리 이므로 .js확장자인 파일이 필요함(min은 서버의 부하가 덜 가는 압축파일) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 	<!-- jquery는 dom이나 ajax를 편하게 하기 위해서 만든것 -->
 	<link rel="stylesheet" href="../common/css/my_style.css" />
@@ -21,6 +22,8 @@
 		$(document).ready(function() {
 			//alert("jQuery시작........")
 			//clickMe로 id가 정의된 객체가 click되면 익명의 함수를 사용
+			// 이벤트 사용법 
+			// 1. 이벤트 이름을 직접 준다. (~.click(function(){ )
 			$("#clickMe").click(function() {
 				//id가 picframe으로 정의된 객체를 화면에 보여지도록
 				//다시 클릭하면 화면에서 사라지도록

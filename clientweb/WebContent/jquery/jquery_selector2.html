@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,10 +65,47 @@
 	<a href="#" target="_self">하이퍼링크2</a>
 	<a href="#" target="_blank">하이퍼링크3</a>
 	<a href="#" target="_self">하이퍼링크4</a>
-	<script type="text/javascript" src="../common/js/jquery-1.12.3.min.js"></script>
+	
+	<!-- body태그 가장 밑에 정의하는 것이 로딩이 가장 빠르다! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 	<script type="text/javascript">
+		//페이지의 모든 요소들이 dom객체로 완성되는 것이 완료되면 
 		$(document).ready(function(){
-			
+			// 이벤트 사용법
+			// 2. on이라는 메소드를 통해 이벤트와 이벤트핸들러
+			// (=이벤트가 발생했을때 이런 기능을 실행하겠다. 주로 function으로 명시)를 명시하는 방법
+			$("#ultag").on("click", function(){
+				// :은 가상의 태그명(실물이 아니라 상황이나 상태로 선택자 적용)
+				$("ul li:first").css("color", "red");
+			});
+			$("#ulAll").on("click", function(){
+				$("ul:first-child").css("color", "blue");
+			});
+			$("#href").on("click", function(){
+				// 대괄호 - 속성
+				// href가 적용된 태그 선택자 (href 속성이 적용된 a태그만 색이 변함)
+				$("[href]").css("color", "skyblue");
+			});
+			/* $("#attrVal").on("click", function(){
+				// 대괄호 - 속성
+				// target이 blank인 것만 변경(). " "는 ' '로 변경
+				$("[target='_blank']").css("color", "yellow");
+			}); */
+			$("#attrVal").on("click", function(){
+				// 태그명을 특정짓지 않으면 _blank 제외 모든 요소가 pink가 됨
+				$("a[target != '_blank']").css("color", "pink");
+			});
+			$("#inputbutton").on("click", function(){
+				// 타입이 button인 요소들
+				$(":button").css("color", "green");
+			});
+			// @@ index가 0부터 들어가므로 주의한다!
+			$("#treven").on("click", function(){
+				$("tr:even").css("background-color", "blue");
+			});
+			$("#trodd").on("click", function(){
+				$("tr:odd").css("background-color", "yellow");
+			});
 		});
 	</script>
 </body>

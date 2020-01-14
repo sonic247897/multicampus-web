@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	
+		//data = "<p style='background: yellow;'>newP</p>";
+		$(document).ready(function () {
+			// js_dom폴더에서 작업한 donExam.html의 내용을 jquery로 변경
+			$("#insertP").on("click", function(){
+				//$("#root").append(data);
+				data = $("<p>newP</p>");
+				//data.css("background-color","yellow");
+				// css 여러개를 동적으로 적용할 때 가장 쉬운 방법
+				data.attr("style","background-color: yellow; border: 1px solid blue; font-weight: bolder");
+				$("#root").append(data);
+			});
+			
+			$("#deleteP").on("click", function(){
+				// last와 last의 하위를 모두 제거
+				$("#root").children().last().remove();
+				
+			});
+			
+			$("#deleteDivAndP").on("click", function(){
+				// 선택된 노드의 하위노드만 제거
+				$("#root").empty();
+			});
+			
+		});
+	
+	</script>
+</head>
+<body>
+	<div id="layer"></div>
+	
+
+	<hr>
+
+	<div id="root">
+		<p style="background: gray;">line01</p>
+		<p style="background: skyblue">line02</p>
+		<p style="background: green;">line03</p>
+		<p style="background: red;">line04</p>
+	</div>
+
+	<hr>
+	<button id="insertP">P태그추가하기</button>
+	<button id="deleteP">P태그삭제하기</button>
+	<button id="deleteDivAndP">div안의 모든 p태그 삭제하기</button>
+	<button id="innerHTML_test">innerHTML</button>
+
+</body>
+</html>

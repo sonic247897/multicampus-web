@@ -3,7 +3,8 @@
 <head>
 <title>Insert title here</title>
 <script type="text/javascript"
-		 src="../common/js/jquery-3.2.1.min.js"></script>
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		 
 </head>
 <body>
 	<div id="main">
@@ -20,7 +21,26 @@
 		//DOM노드 액세스
 		$(document).ready(function(){
 			$("#nodetest").on("click",function(){
-		
+				// html정의하는 방법이 너무 다양해서 여러가지 메소드들이 제공되고 있다.
+				// 특정 노드의 하위 노드를 가져와서 작업하기
+				/* 
+					children(): 특정 노드의 하위노드를 모두 반환(element 노드만)
+					last(): 특정 노드의 lastChild
+					first(): 특정 노드의 firstChild
+				*/
+				list = $("#main").children();
+				alert(list.length); 
+				/* 메소드 체이닝이 가능 - 메소드의 반환 결과로 바로 다른 메소드를 연결해서
+									호출할 수 있다. 	*/
+				// (자바스크립트는 for문 돌려야 함)
+				$("#main").children().css("color", "blue");
+				$("#main").children().last().css("color", "pink");
+				//$("#main").children().first().css("color", "orange");
+				// json의 형식으로 css속성을 정의
+				// --------- name : value에 큰따옴표를 줘야 한다. ,로 나열
+				$("#main").children().first().css({"color":"orange",
+					"border":"solid 1px red"}); // css에서 자동완성으로 만든 뒤 copy
+									
 			});
 		});
 	</script>

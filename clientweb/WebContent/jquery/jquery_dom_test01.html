@@ -1,13 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR" />
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-</script>
-<script type="text/javascript">
-
-</script>
+	<meta charset="EUC-KR" />
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		// 1. jquery 객체로 정의
+		//data = $("<p>dom액세스하는 방법</p>");
+		// 정상적으로 dom이 수행됐을때
+		// 2. 태그를 문자열로 정의
+		data = "<p>dom액세스하는 방법^^</p>";
+		$(document).ready(function() {
+			// btns의 last child node로 추가
+			// 1. 객체를 document 위에 정의 했으므로 모든 객체가 data를 공유해서
+			// 	한 번만 추가된다. (식별할 수 있는 jQuery객체 하나)
+			// 2. p태그 문자열로 노드가 추가되므로 여러개 추가할 수 있다.
+			//	(보통 Ajax로 DB를 가져올 때 사용하는 방법)
+			// => 1, 2 둘 다 접근방법은 같다. [정의되는 위치에 따라 달라질 수 있음]
+			$("#append").on("click", function(){
+				$("#btns").append(data);
+			});
+			// btns의 first child node로 추가
+			$("#prepend").on("click", function(){
+				$("#btns").prepend(data);
+			});
+			// div의 형제 노드로 추가
+			$("#after").on("click", function(){
+				$("#btns").after(data);
+			});
+			// 선택된 노드의 이전 형제 노드로 추가
+			$("#before").on("click", function(){
+				$("#btns").before(data);
+			});
+			
+			
+			// for문, while문 돌릴 필요 없이 전체 제거 가능!
+			$("#remove").on("click", function(){
+				// 선택된 노드와 그 하위노드를 모두 제거
+				$("#btns").remove();
+				// 특정 객체를 지우려면 선택자를 remove 안에 정의
+			});
+		
+			$("#empty").on("click", function(){
+				// 선택된 노드의 하위노드만 제거
+				$("#btns").empty();
+			});
+		});
+	</script>
 </head>
 <body>
 	<div id="main">
