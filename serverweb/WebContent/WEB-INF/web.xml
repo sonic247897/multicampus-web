@@ -46,4 +46,15 @@
   		<url-pattern>/login.do</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  		<servlet-name>mypost</servlet-name>
+  		<servlet-class>basic.PostFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  		<servlet-name>mypost</servlet-name>
+  		<url-pattern>/mypost.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  
 </web-app>
