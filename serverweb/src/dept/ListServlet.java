@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +25,7 @@ public class ListServlet extends HttpServlet {
 		ArrayList<DeptDTO> deptlist = dao.getDeptList();
 		//pw.print(deptlist);
 		
-		//3. 응답화면 생성
+		/*//3. 응답화면 생성
 		pw.print("<h1>부서 목록보기</h1>");
 		pw.print("<hr/>");
 		pw.print("<table border='1' width='500px'><th>부서코드</th><th>부서명</th><th>부서위치</th><th>전화번호</th><th>관리자</th><th>삭제</th>");
@@ -42,6 +43,15 @@ public class ListServlet extends HttpServlet {
 					"&info=test'>삭제</a></td>");
 			pw.print("</tr>");
 		}
-		pw.print("</table>");
+		pw.print("</table>");*/
+		
+		//3. 데이터 공유
+		request.setAttribute("deptList", deptlist);
+		
+		//4. 응답화면으로 요청 재지정
+		RequestDispatcher rd =
+				request.getRequestDispatcher("/dept/list.jsp");
+		rd.forward(request, response);
+		
 	}
 }
