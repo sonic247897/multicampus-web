@@ -1,3 +1,4 @@
+<%@page import="member.MemberDTO"%>
 <%@page import="dept.DeptDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -24,24 +25,26 @@
 		// 5. 파라미터가 안 넘어오면? -> view에서 input받는 곳에서 name, value 제대로 넘어오고 있는지 확인
 				//PrintWriter , getParameter
 		// 6. DButil에서 ip, id, passwd를 올바르게 입력했는지
-		ArrayList<DeptDTO> deptList = 
-			(ArrayList<DeptDTO>)request.getAttribute("deptList");
+		ArrayList<MemberDTO> memList = 
+			(ArrayList<MemberDTO>)request.getAttribute("memList");
 	%>
 	
-	<h1>부서 목록보기~~~~^^</h1>
+	<h1>멤버 목록보기~~~~^^</h1>
 	<hr/>
-	<table border='1' width='500px'><th>부서코드</th><th>부서명</th><th>부서위치</th><th>전화번호</th><th>관리자</th><th>삭제</th>
-	<% int size = deptList.size();
+	<table border='1' width='500px'><th>id</th><th>pass</th><th>name</th><th>addr</th><th>deptno</th><th>grade</th><th>point</th><th>삭제</th>
+	<% int size = memList.size();
 	for(int i=0; i<size; ++i) { 
-		DeptDTO dept = deptList.get(i);%>
+		MemberDTO mem = memList.get(i);%>
 		<tr>
-		<td><%=dept.getDeptNo()%></td>
 		<!-- 대부분 primary key로  정보를 넘겨준다! -->
-		<td><a href= "/serverweb/dept/read.do?deptNo=<%=dept.getDeptNo() %>&info=한글데이터"><%=dept.getDeptName()%></a></td>
-		<td><%=dept.getLoc()%></td>
-		<td><%=dept.getTel()%></td>
-		<td><%=dept.getMgr()%></td>
-		<td><a href ='/serverweb/dept/delete.do?deptNo=<%=dept.getDeptNo()%>&info=test'>삭제</a></td>
+		<td><a href= '/serverweb/member/read.do?id=<%=mem.getId() %>'><%=mem.getId()%></a></td>
+		<td><%=mem.getPass()%></td>
+		<td><%=mem.getName()%></td>
+		<td><%=mem.getAddr()%></td>
+		<td><%=mem.getDeptno()%></td>
+		<td><%=mem.getGrade()%></td>
+		<td><%=mem.getPoint()%></td>
+		<td><a href ='/serverweb/member/delete.do?id=<%=mem.getId()%>&info=test'>삭제</a></td>
 		</tr>
 		<%}%>
 	</table>

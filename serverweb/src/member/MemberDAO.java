@@ -1,4 +1,4 @@
-package dept;
+package member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,13 +8,13 @@ import java.util.ArrayList;
 
 import fw.DBUtil;	
 
-public class DeptDAO {
+public class MemberDAO {
 	//전체 목록 출력
-	public ArrayList<DeptDTO> getDeptList() {
+	public ArrayList<MemberDTO> getMemList() {
 		System.out.println("getDeptList() 호출");
-		ArrayList<DeptDTO> deptlist = new ArrayList<DeptDTO>();
-		DeptDTO dept = null;
-		String sql = "select * from MYDEPT";
+		ArrayList<MemberDTO> memlist = new ArrayList<MemberDTO>();
+		MemberDTO mem = null;
+		String sql = "select * from member";
 		Connection con = null;
 		PreparedStatement ptmt = null;
 		ResultSet rs= null;
@@ -23,35 +23,37 @@ public class DeptDAO {
 			ptmt = con.prepareStatement(sql);
 			rs = ptmt.executeQuery();
 			while(rs.next()) {
-				dept = new DeptDTO(rs.getString(1),
+				mem = new MemberDTO(rs.getString(1),
 						 rs.getString(2), rs.getString(3), rs.getString(4),
-						 rs.getString(5));
-				deptlist.add(dept);
+						 rs.getString(5), rs.getString(6), rs.getInt(7));
+				memlist.add(mem);
 			}
-			System.out.println("dao=>"+deptlist.size());
+			System.out.println("dao=>"+memlist.size());
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
 			DBUtil.close(rs, ptmt, con);
 		}
-		return deptlist;
+		return memlist;
 		
 	}
 	
-	//부서등록
-	public int insert(DeptDTO dept) {
+	//멤버등록
+	public int insert(MemberDTO mem) {
 		Connection con = null;
 		PreparedStatement ptmt = null;
 		int result = 0;
-		String sql ="insert into MYDEPT values(?,?,?,?,?)";
+		String sql ="insert into member values(?,?,?,?,?,?,?)";
 		try {
 			con = DBUtil.getConnect();
 			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, dept.getDeptNo());
-			ptmt.setString(2, dept.getDeptName());
-			ptmt.setString(3, dept.getLoc());
-			ptmt.setString(4, dept.getTel());
-			ptmt.setString(5, dept.getMgr());
+			ptmt.setString(1, mem.getId());
+			ptmt.setString(2, mem.getPass());
+			ptmt.setString(3, mem.getName());
+			ptmt.setString(4, mem.getAddr());
+			ptmt.setString(5, mem.getDeptno());
+			ptmt.setString(6, mem.getGrade());
+			ptmt.setInt(7, mem.getPoint());
 			result = ptmt.executeUpdate(); 
 			System.out.println("result=>"+result);
 		}catch(SQLException e) {
@@ -62,17 +64,16 @@ public class DeptDAO {
 		return result;
 	}
 	
-	//부서삭제
-	public int delete(String deptno) {
+	//멤버 삭제
+	public int delete(String id) {
 		Connection con = null;
 		PreparedStatement ptmt = null;
 		int result = 0;
-		String sql ="delete from MYDEPT where deptno = ?";
+		String sql ="delete from member where id = ?";
 		try {
-			System.out.println("deptno in delete: "+deptno);
 			con = DBUtil.getConnect();
 			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, deptno);
+			ptmt.setString(1, id);
 			result = ptmt.executeUpdate(); 
 			System.out.println(sql);
 			System.out.println("result=>"+result);
@@ -85,35 +86,28 @@ public class DeptDAO {
 	}
 	
 	// where절에 primary key -> 무조건 레코드 하나 출력 = DTO매핑
-	public DeptDTO read(String deptNo) {
-		System.out.println("DeptDTO() 호출");
-		DeptDTO dept = null;
-		String sql = "select * from MYDEPT where deptNo = ?";
+	public MemberDTO read(String id) {
+		MemberDTO mem = null;
+		String sql = "select * from member where id = ?";
 		Connection con = null;
 		PreparedStatement ptmt = null;
 		ResultSet rs= null;
 		try {
 			con = DBUtil.getConnect();
 			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, deptNo);
+			ptmt.setString(1, id);
 			rs = ptmt.executeQuery(); // select실행
-			// while(rs.next()) -레코드 검색
-			// 실행결과를 자바객체로 변환
-			//  - 레코드가 여러 개: DTO로 레코드를 변환하고 ArrayList에 add
-			//  - 레코드가 한 개: DTO로 레코드 변환
-			// 보통 1개인 경우 while보다 if를 사용한다 = 있나?없나?
 			if(rs.next()) {
-				dept = new DeptDTO(rs.getString(1),
+				mem = new MemberDTO(rs.getString(1),
 						 rs.getString(2), rs.getString(3), rs.getString(4),
-						 rs.getString(5));
+						 rs.getString(5), rs.getString(6), rs.getInt(7));
 			}
-			System.out.println("dao=>"+dept);
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
 			DBUtil.close(rs, ptmt, con);
 		}
-		return dept;
+		return mem;
 	}
 	
 	

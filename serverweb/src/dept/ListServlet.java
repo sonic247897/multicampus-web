@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "list", urlPatterns = { "/dept/list.do" })
 public class ListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("euc-kr"); // @POST방식에서만 적용!
 		response.setContentType("text/html;charset=euc-kr");
 		PrintWriter pw = response.getWriter();
 		System.out.println("서블릿");
